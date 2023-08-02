@@ -8,11 +8,11 @@ on:
 
 jobs:
   bulid:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version:[12.x]
+        node-version: [14.x]
 
     steps:
       - name: Checkout repository
@@ -26,10 +26,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name Run the tests
+      - name: Run the tests
         run: npm test
 
-      - name Build
+      - name: Build
         run: npm run build
     
  
