@@ -1,0 +1,36 @@
+name: CI_action
+
+on:
+  push:
+    branches: [Development]
+  pull_request:
+    branches: [Development]
+
+jobs:
+  bulid:
+    runs-on:ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version:[12.x]
+
+    steps:
+      - name: Checkout repository
+        uses: action/checkout@v2
+
+      - name: Set up Node.js ${{ matrx.node-version }}
+        uses: action/setup-node@v1
+        with:
+          node-version: ${{ matrx.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name Run the tests
+        run: npm test
+
+      - name Build
+        run: npm run build
+    
+ 
+  
