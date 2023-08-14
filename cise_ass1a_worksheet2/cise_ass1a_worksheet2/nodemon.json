@@ -1,0 +1,6 @@
+{
+    "watch": ["npm-watch"],
+    "ext": "ts",
+    "ignore": ["src/app.controller.spec.ts"],
+    "exet": "nest start"
+}
