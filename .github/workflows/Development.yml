@@ -12,16 +12,16 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [v18.17.0]
 
     steps:
       - name: Checkout repository
         uses: action/checkout@v2
 
-      - name: Set up Node.js ${{ matrx.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: action/setup-node@v1
         with:
-          node-version: ${{ matrx.node-version }}
+          node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
         run: npm install
